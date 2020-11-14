@@ -3,8 +3,12 @@
 #include <QDebug>
 //#include <bits/stdc++.h>
 //using namespace std;
-//明文：00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff
-//密钥：00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13 14 15 16 17
+//明文1：00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+//密钥1：00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+//密文1：aa e0 69 92 ac bf 52 a3 e8 f4 a9 6e c9 30 0b d7
+//明文2：00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff
+//密钥2：00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13 14 15 16 17
+//密文2：dd a9 7c a4 86 4c df e0 6e af 70 a0 ec 0d 71 91
 int matrix[4][4];
 int key_matrix[4][52];
 const int D = 1<<9;
@@ -68,7 +72,9 @@ void MainWindow::generate_T(int C){
     for (int i = 0;i < 4;++i){
         key_matrix[i][C] = S[key_matrix[i][C]/D][key_matrix[i][C]%D];
     }
-    key_matrix[0][C] ^= myPow(10,(C-6)/6);
+
+    //一开始看课件以为这里是10的幂次，没想到课件里是二进制...
+    key_matrix[0][C] ^= myPow(2,(C-6)/6);
 }
 
 void MainWindow::copy_c(int C){
@@ -163,7 +169,7 @@ QString MainWindow::AES(QString textIn,QString textKey){
     for (int i = 1;i <= 12;++i){
         BS();
         SR();
-        MC();
+        if (i != 12) MC();
         ARK(i);
         QStringList retList;
         for (int j = 0;j < 4;++j){
@@ -172,16 +178,13 @@ QString MainWindow::AES(QString textIn,QString textKey){
             }
         }
         QString retQString = retList.join(" ");
-        qDebug() << i ;
-        qDebug() << retQString;
     }
     QStringList retList;
     for (int j = 0;j < 4;++j){
         for (int i = 0;i < 4;++i){
-            retList.append(QString::number(matrix[i][j], 16));
+            retList.append(QString("%1").arg(matrix[i][j],2,16,QLatin1Char('0')));
         }
     }
     QString retQString = retList.join(" ");
-    //qDebug() << retQString;
     return retQString;
 }
