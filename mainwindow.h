@@ -27,6 +27,8 @@ private slots:
     void SR();
     void MC();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

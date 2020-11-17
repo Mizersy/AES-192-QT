@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle("解密程序");
 }
 
 MainWindow::~MainWindow()
@@ -168,16 +169,12 @@ QString MainWindow::AES(QString textIn,QString textKey){
     ARK(0);
     for (int i = 1;i <= 12;++i){
         BS();
+
         SR();
+
         if (i != 12) MC();
+
         ARK(i);
-        QStringList retList;
-        for (int j = 0;j < 4;++j){
-            for (int i = 0;i < 4;++i){
-                retList.append(QString::number(matrix[i][j], 16));
-            }
-        }
-        QString retQString = retList.join(" ");
     }
     QStringList retList;
     for (int j = 0;j < 4;++j){
@@ -188,3 +185,4 @@ QString MainWindow::AES(QString textIn,QString textKey){
     QString retQString = retList.join(" ");
     return retQString;
 }
+

@@ -17,13 +17,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mainwindow_decrypt.cpp \
+    mainwindow_init.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    mainwindow_decrypt.h \
+    mainwindow_init.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    mainwindow_decrypt.ui \
+    mainwindow_init.ui
 
 TRANSLATIONS += \
     AES_zh_CN.ts

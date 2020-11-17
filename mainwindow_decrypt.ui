@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>MainWindow_decrypt</class>
+ <widget class="QMainWindow" name="MainWindow_decrypt">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>512</width>
-    <height>313</height>
+    <width>510</width>
+    <height>375</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QTextEdit" name="Ciphertext">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>90</y>
+      <x>70</x>
+      <y>40</y>
+      <width>271</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="Key">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>130</y>
+      <width>271</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_3">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>230</y>
+      <width>271</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Decrypt">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>100</y>
       <width>81</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>加密</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="text_in">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>50</y>
-      <width>331</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="key">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>110</y>
-      <width>331</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="text_out">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>170</y>
-      <width>331</width>
-      <height>61</height>
-     </rect>
+     <string>解密</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>50</y>
       <width>54</width>
       <height>41</height>
@@ -72,14 +72,14 @@
      </font>
     </property>
     <property name="text">
-     <string>明文:</string>
+     <string>密文：</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>110</y>
+      <x>10</x>
+      <y>140</y>
       <width>54</width>
       <height>41</height>
      </rect>
@@ -96,8 +96,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>180</y>
+      <x>10</x>
+      <y>240</y>
       <width>54</width>
       <height>41</height>
      </rect>
@@ -108,21 +108,11 @@
      </font>
     </property>
     <property name="text">
-     <string>密文：</string>
+     <string>明文：</string>
     </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>512</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>
